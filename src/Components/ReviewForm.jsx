@@ -45,7 +45,7 @@ export default function ReviewForm({setFeedback , setName , onImageChange}) {
             Attach Your Image:
           </label>
           <input type="file" id="userPhoto" className="flex-1" 
-          onChange={handleImageChange} />
+          onChange={handleImageChange} value={selectedImage}/>
         </div>
         <textarea
         onChange={getFeedback}
