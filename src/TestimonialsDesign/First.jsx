@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import defaultUserPic from '../assets/userdefault.png';
 import '../App.css';

@@ -9,7 +9,8 @@ export default function ReviewForm({setFeedback , setName , onImageChange}) {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setSelectedImage(reader.result);
+        selectedImage = reader.result;
+        setSelectedImage(selectedImage);
         onImageChange(reader.result); // Pass the image to parent
       };
       reader.readAsDataURL(file);
