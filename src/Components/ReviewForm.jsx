@@ -3,14 +3,13 @@ import '../App.css'
 
 export default function ReviewForm({setFeedback , setName , onImageChange}) {
   
-  const [selectedImage, setSelectedImage] = useState(null);
+  let [selectedImage, setSelectedImage] = useState(null);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        selectedImage = reader.result;
-        setSelectedImage(selectedImage);
+        setSelectedImage(reader.result);
         onImageChange(reader.result); // Pass the image to parent
       };
       reader.readAsDataURL(file);
