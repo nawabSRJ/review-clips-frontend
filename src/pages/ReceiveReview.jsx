@@ -32,9 +32,10 @@ const handleSubmit = () => {
     <div>
       <ReviewForm setFeedback={setFeedback} setName={setName} onImageChange={handleImageChange} />
       <First feedback={feedback} name={name} image={image} />
-      <button onClick={handleSubmit} className="bg-green-400 py-2 px-4 text-2xl rounded-full mt-4">
+      <center><button onClick={handleSubmit} className="bg-green-400 py-2 px-4 text-2xl rounded-full mt-4">
         Submit
       </button>
+      </center>
     </div>
   );
 }
