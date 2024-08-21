@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewForm from '../Components/ReviewForm';
 import First from '../TestimonialsDesign/First';
@@ -18,7 +18,7 @@ export default function ReceiveReview() {
 const handleSubmit = () => {
     console.log({ name, feedback, image });  // Log the data to verify
     axios.post(`https://review-clips-backend.onrender.com/review/${uniqueId}`, { name, feedback, image })
-      .then(response => {
+      .then(() => {
         alert("Review submitted successfully!");
       })
       .catch(error => {
