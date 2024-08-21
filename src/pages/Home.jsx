@@ -11,9 +11,9 @@ export default function Home() {
     <div>
       <Header />
       <div class="main flex sm:flex-row flex-col justify-around mt-20">
-        <div className='main-left text-left bg-white-300 w-[40%]'>
-          <h1 class="sm:text-6xl  text-left pl-5 sm:pt-5 pt-3 mt-5 text-emerald-600">Collecting Reviews <br /> Made Easy</h1>
-          <p class="text-left pl-5 p-3 my-3 text-2xl">Collect eye-catch testimonials from your clients without <span class="text-red-600">hassle</span> for design</p>
+        <div className='main-left text-left  bg-white-300 sm:w-[40%] w-full'>
+          <h1 class="sm:text-6xl text-5xl  sm:text-left text-center pl-5 sm:pt-5 pt-3 mt-5 text-emerald-600">Collecting Reviews <br /> Made Easy</h1>
+          <p class="sm:text-left text-center pl-5 p-3 my-3 text-2xl">Collect eye-catch testimonials from your clients without <span class="text-red-600">hassle</span> for design</p>
           <br />
           <div class="btns text-center flex sm:flex-row flex-col justify-start pl-5">
             <a href={'/send-review'}><button class="text-center py-4 px-6 rounded-full text-2xl bg-emerald-400 hover:bg-emerald-600 mr-2 sm:my-0 my-3">Send Quick Review</button></a>
@@ -22,7 +22,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='main-right bg-red-300 w-[40%]'>
+        <div className='main-right bg-red-300 sm:w-[40%] w-full'>
           <img src={mainPic} className='w-[100%]' />
         </div>
       </div> {/* main section ends */}
