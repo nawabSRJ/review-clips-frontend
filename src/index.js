@@ -7,6 +7,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import SendReview from './pages/SendReview';
+import Dashboard from './pages/Dashboard';
+import Register from './Components/Register';
+import Login from './Components/Login';
+import ReceiveReview from './pages/ReceiveReview';
 
 
 
@@ -24,7 +28,23 @@ let allRoutes = createBrowserRouter(
     {
       path:'/send-review',
       element:<SendReview/>
-    }
+    },
+    {
+      path:'/dashboard',
+      element:<Dashboard/>
+    },
+    {
+      path:'/register',
+      element:<Register/>
+    },
+    {
+      path:'/login',
+      element:<Login/>
+    },
+    {
+      path:'/receive-review/:uniqueId', // Add the route for ReceiveReview with dynamic parameter
+      element:<ReceiveReview/>
+    },
   ]
 )
 root.render(
