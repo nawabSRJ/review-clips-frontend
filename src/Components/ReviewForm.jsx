@@ -3,7 +3,7 @@ import '../App.css'
 
 export default function ReviewForm({setFeedback , setName , onImageChange}) {
   
-  let [selectedImage, setSelectedImage] = useState(null);
+  let [, setSelectedImage] = useState(null);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
