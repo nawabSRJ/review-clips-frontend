@@ -29,7 +29,7 @@ export default function Dashboard() {
         <div>
             <div className="navbar w-[100%] bg-stone-100 sm:text-2xl flex sm:flex-row justify-evenly">
                 <div className="container sm:flex-row flex-col flex flex-wrap items-center mx-auto">
-                    <a className="text-blue-600 text-4xl md:py-1 flex flex-col my-0">
+                    <a href='/' className="text-blue-600 text-4xl md:py-1 flex flex-col my-0">
                         Welcome {user.name}
                     </a>
                 </div>
