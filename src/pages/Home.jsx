@@ -23,7 +23,7 @@ export default function Home() {
         </div>
 
         <div className='main-right bg-red-300 sm:w-[40%] w-full'>
-          <img src={mainPic} className='w-[100%]' />
+          <img src={mainPic} alt='main pic' className='w-[100%]' />
         </div>
       </div> {/* main section ends */}
 
@@ -43,7 +43,7 @@ export default function Home() {
               </div>
             </div>
             <div className="abt-right flex-grow flex justify-center sm:justify-start sm:ml-4 w-full sm:w-1/5">
-              <img src={aboutPic} className="rounded-md h-[400px] w-[400px] " />
+              <img src={aboutPic} alt='about pic' className="rounded-md h-[400px] w-[400px] " />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="abt-right flex-grow flex justify-center sm:justify-start sm:ml-4 w-full sm:w-1/5">
-                <img src={sendReviewPic} className="rounded-md h-[350px] w-[900px] " />
+                <img src={sendReviewPic} alt='send review' className="rounded-md h-[350px] w-[900px] " />
               </div>
 
 
@@ -83,7 +83,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="abt-right flex-grow flex justify-center sm:justify-start sm:ml-4 w-full sm:w-1/5">
-                <img src={receiveReviewPic} className="rounded-md h-[400px] w-[900px] " />
+                <img src={receiveReviewPic} alt='receive review' className="rounded-md h-[400px] w-[900px] " />
               </div>
 
 
