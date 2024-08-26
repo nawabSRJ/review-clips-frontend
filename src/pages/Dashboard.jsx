@@ -4,7 +4,6 @@ import ReactToPrint from 'react-to-print';
 import axios from 'axios';
 
 export default function Dashboard() {
-    const componentRef = useRef();
     const location = useLocation();
     const { user } = location.state || { user: { name: 'User' } };
     const [reviews, setReviews] = useState([]);
