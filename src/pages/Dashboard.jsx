@@ -8,6 +8,8 @@ export default function Dashboard() {
     const location = useLocation();
     const { user } = location.state || { user: { name: 'User' } };
     const [reviews, setReviews] = useState([]);
+    // Create a ref array to store refs for each review
+    const reviewRefs = useRef([]);
 
     useEffect(() => {
         // Fetch the updated user data including reviews
@@ -45,8 +47,8 @@ export default function Dashboard() {
             <div className='reviews-container w-[90%] flex flex-col flex-wrap justify-evenly text-left mx-auto' >
                 {reviews.map((review, index) => (
                     <div key={index} className='bg-slate-200 my-5 p-4 '>
-
-                        <div ref={componentRef} className="outer-box mx-auto container sm:h-[90%] sm:w-[60%] h-[90%] w-[70%] bg-green-400 pt-5">
+                        {/* Assign a ref for each review to avoid the same review print problem */}
+                        <div ref={(el) => (reviewRefs.current[index] = el)} className="outer-box mx-auto container sm:h-[90%] sm:w-[60%] h-[90%] w-[70%] bg-green-400 pt-5">
                             <div className="inner-box mx-auto container sm:h-[95%] sm:w-[80%] h-[95%] w-[85%] bg-white pt-5 pb-15">
                                 <h3 className="sm:text-3xl text-2xl text-center text-black font-playwrite-cursive">
                                     Our Client
@@ -69,12 +71,15 @@ export default function Dashboard() {
                             </div>
                         </div> {/* outer box ended */}
 
-                        <center><ReactToPrint
-                            trigger={() => <button className="bg-green-400 py-2 px-4 text-2xl rounded-full my-5">Print Feedback</button>}
-                            content={() => componentRef.current}
-                            documentTitle="Feedback"
-                            pageStyle="print"
-                        /> </center>
+                        {/* Use the specific ref for the current review */}
+                        <center>
+                            <ReactToPrint
+                                trigger={() => <button className="bg-green-400 py-2 px-4 text-2xl rounded-full my-5">Print Feedback</button>}
+                                content={() => reviewRefs.current[index]}
+                                documentTitle="Feedback"
+                                pageStyle="print"
+                            />
+                        </center>
                     </div>
                 ))}
             </div>
