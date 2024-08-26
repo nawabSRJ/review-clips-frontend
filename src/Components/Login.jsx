@@ -23,11 +23,10 @@ export default function Login() {
                     navigate('/dashboard', { state: { user: result.data.user } });
                     setLoading(false);
                 }
-                else if(result.data.message === "No record found"){
+                else if (result.data.message === "No record found") {
                     setLoading(false); // stop loading
-                    {
-                        NotificationManager.error('Please Re-enter details' , 'No Record Found :/')
-                    }
+                    NotificationManager.error('Please Re-enter details', 'No Record Found :/')
+
                 }
             })
             .catch(err => {
@@ -39,7 +38,7 @@ export default function Login() {
 
     return (
         <div className='flex sm:flex-row flex-col min-h-screen justify-center items-center'>
-            <NotificationContainer/>
+            <NotificationContainer />
             {
                 loading
                     ?
