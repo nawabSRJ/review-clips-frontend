@@ -7,18 +7,25 @@ export default function Login() {
     // const [name, setName] = useState('');  no need here
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true); // when the request starts -> set to true
         axios.post('https://review-clips-backend.onrender.com/login', {email, password })
             .then(result => {
                 console.log(result)
                 if(result.data.message === "Success"){
                     navigate('/dashboard', { state: { user: result.data.user } });
+                    setLoading(false);
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                setLoading(true);
+            });
+            
     };
     return (
         <div className='flex sm:flex-row flex-col min-h-screen justify-center items-center'>
