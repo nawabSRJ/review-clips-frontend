@@ -42,9 +42,9 @@ export default function Dashboard() {
             </div>
 
             <hr className='w-[70%] ml-4 border-t-2 border-blue-600' />
-            <div className='reviews-container w-[90%] flex sm:flex-row flex-col flex-wrap justify-evenly text-left mx-auto' >
+            <div className='reviews-container w-[90%] flex flex-col flex-wrap justify-evenly text-left mx-auto' >
                 {reviews.map((review, index) => (
-                    <div key={index} className=' bg-slate-200 my-5 p-4 '>
+                    <div key={index} className='bg-slate-200 my-5 p-4 '>
 
                         <div ref={componentRef} className="outer-box mx-auto container sm:h-[90%] sm:w-[60%] h-[90%] w-[70%] bg-green-400 pt-5">
                             <div className="inner-box mx-auto container sm:h-[95%] sm:w-[80%] h-[95%] w-[85%] bg-white pt-5 pb-15">
