@@ -35,7 +35,7 @@ export default function Login() {
                     loading
 
                         ?
-                        <img src='https://i.gifer.com/ZKZg.gif' />
+                        <img src='https://i.gifer.com/ZKZg.gif' alt='loading gif' />
                         :
                         <form onSubmit={handleSubmit}>
                             <input type='email' className='px-4 py-2 my-3 ' placeholder='Enter email id...' onChange={(e) => setEmail(e.target.value)} /> <br />
