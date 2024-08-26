@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import 'react-notifications/lib/notifications.css'
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+
 export default function Login() {
 
     // const [name, setName] = useState('');  no need here
@@ -20,6 +23,12 @@ export default function Login() {
                     navigate('/dashboard', { state: { user: result.data.user } });
                     setLoading(false);
                 }
+                else if(result.data.message === "No record found"){
+                    setLoading(false); // stop loading
+                    {
+                        NotificationManager.error('Please Re-enter details' , 'No Record Found :/')
+                    }
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -27,8 +36,10 @@ export default function Login() {
             });
 
     };
+
     return (
         <div className='flex sm:flex-row flex-col min-h-screen justify-center items-center'>
+            <NotificationContainer/>
             {
                 loading
                     ?

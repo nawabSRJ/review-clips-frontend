@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import 'react-notifications/lib/notifications.css'
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export default function Register() {
   // let [lstate, setLState] = useState(false);  // ? why
@@ -9,11 +11,51 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+
+  // Function to validate inputs
+  const validateInputs = () => {
+    // Trim leading and trailing spaces
+    const trimmedName = name.trim();
+
+    // Check if trimmedName contains at least two alphanumeric characters
+    const hasMinTwoLetters = trimmedName.replace(/\s+/g, '').length >= 2;
+
+    // Check if name has at least two words and is not just spaces
+    const nameWords = trimmedName.split(/\s+/);
+    if (nameWords.length < 2 || !hasMinTwoLetters) {
+      NotificationManager.error('Please enter a valid name with at least two alphanumeric characters and at least two words.', 'Error');
+      return false;
+    }
+    // Check if password is at least 5 characters long
+    if (password.length < 5) {
+      NotificationManager.error('Password must be at least 5 characters long.', 'Error');
+      return false;
+    }
+
+    // Check if email is empty
+    if (email.trim().length === 0) {
+      NotificationManager.error('Email cannot be empty.', 'Error');
+      return false;
+    }
+
+    // If all validations pass
+    return true;
+  };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate inputs before proceeding
+    if (!validateInputs()) {
+      return; // Exit if validation fails
+    }
+
     axios.post('https://review-clips-backend.onrender.com/register', { name, email, password })
-      .then(result =>{ console.log(result)
+      .then(result => {
+        console.log(result)
         navigate('/login')
       })
 
@@ -33,6 +75,7 @@ export default function Register() {
           <p className='text-blue-600 py-1 rounded-full w-[70%] mx-auto bg-white mt-5'>Already have an account? <Link to={'/login'}><span className='text-underline text-black'>Sign-in</span></Link></p>
         </form>
       </div>
+      <NotificationContainer />
     </div>
   );
 }
