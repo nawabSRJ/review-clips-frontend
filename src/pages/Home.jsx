@@ -5,8 +5,8 @@ import Dashboard from './Dashboard';
 
 export default function Home() {
   const [auth, setAuth] = useState(false);
-  const [email, setMail] = useState('');
-  const [msg, setMsg] = useState('');
+  const [, setMail] = useState('');
+  const [, setMsg] = useState('');
 
   useEffect(() => {
     axios.get('https://reviewclips.netlify.app', { withCredentials: true })
