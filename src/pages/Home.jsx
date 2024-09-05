@@ -5,9 +5,9 @@ import Dashboard from './Dashboard';
 
 export default function Home() {
   const [auth, setAuth] = useState(false);
-  const [, setMail] = useState('');
-  const [, setMsg] = useState('');
-
+  const [mail, setMail] = useState('');
+  const [msg, setMsg] = useState('');
+  
   useEffect(() => {
     axios.get('https://reviewclips.netlify.app', { withCredentials: true })
       .then(res => {
@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div>
       {auth ? (
-        <Dashboard setAuth={setAuth} setMail={setMail} setMsg={setMsg} />
+        <Dashboard setAuth={setAuth} setMail={setMail} setMsg={setMsg} mail={mail} msg = {msg} />
       ) : (
         <Landing />
       )}

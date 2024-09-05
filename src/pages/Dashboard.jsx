@@ -25,7 +25,7 @@ export default function Dashboard({ setAuth, setMail, setMsg }) {
     };
 
     const handleLogout = () => {
-        axios.post('https://reviewclips.netlify.app/logout', {}, { withCredentials: true })
+        axios.post('https://review-clips-backend.onrender.com/logout', {}, { withCredentials: true })
             .then(res => {
                 if (res.data.status === "Success") {
                     setAuth(false);  // Reset auth state
