@@ -27,6 +27,7 @@ export default function Dashboard({ setAuth, setMail, setMsg }) {
     const handleLogout = () => {
         axios.post('https://review-clips-backend.onrender.com/logout', {}, { withCredentials: true })
             .then(res => {
+                console.log(res)
                 if (res.data.status === "Success") {
                     setAuth(false);  // Reset auth state
                     setMail('');      // Clear email
