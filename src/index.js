@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import ReceiveReview from './pages/ReceiveReview';
+import Protected from './Components/Protected';
 
 
 
@@ -31,7 +32,7 @@ let allRoutes = createBrowserRouter(
     },
     {
       path:'/dashboard',
-      element:<Dashboard/>
+      element:<Protected Component={Dashboard}/>
     },
     {
       path:'/register',
