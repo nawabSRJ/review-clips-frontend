@@ -20,8 +20,8 @@ export default function Login() {
             .then(result => {
                 console.log(result)
                 if (result.data.message === "Success") {
-                    localStorage.setItem('logged' , true)
                     navigate('/dashboard', { state: { user: result.data.user } });
+                    localStorage.setItem('logged' , true)
                     setLoading(false);
                 }
                 else if (result.data.message === "No record found") {
