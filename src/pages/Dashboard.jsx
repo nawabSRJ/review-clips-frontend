@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import { useNavigate , useLocation } from 'react-router-dom';
 import ReactToPrint from 'react-to-print';
 import axios from 'axios';
@@ -25,9 +25,8 @@ export default function Dashboard({ setAuth, setMail, setMsg }) {
     };
 
     const handleLogout = () => {
-        axios.post('https://review-clips-backend.onrender.com/logout', {}, { withCredentials: true })
+        axios.post('https://reviewclips.netlify.app/logout', {}, { withCredentials: true })
             .then(res => {
-                console.log(res)
                 if (res.data.status === "Success") {
                     setAuth(false);  // Reset auth state
                     setMail('');      // Clear email

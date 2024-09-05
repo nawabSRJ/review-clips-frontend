@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div>
       {auth ? (
-        <Dashboard setAuth={setAuth} setMail={setMail} setMsg={setMsg} mail={mail} msg = {msg} />
+        <Dashboard setAuth={setAuth} setMail={setMail} setMsg={setMsg} mail={mail} msg ={msg} />
       ) : (
         <Landing />
       )}

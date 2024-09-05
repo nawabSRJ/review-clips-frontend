@@ -16,7 +16,7 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true); // when the request starts -> set to true
-        axios.post('https://reviewclips.netlify.app/login', { email, password })
+        axios.post('https://review-clips-backend.onrender.com/login', { email, password })
             .then(result => {
                 console.log(result)
                 if (result.data.message === "Success") {
