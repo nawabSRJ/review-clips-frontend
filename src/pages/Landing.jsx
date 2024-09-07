@@ -22,7 +22,7 @@ export default function Landing() {
                     </div>
                 </div>
 
-                <div className='main-right bg-red-300 sm:w-[40%] w-full'>
+                <div className='main-right bg-white sm:w-[40%] w-full'>
                     <img src={mainPic} alt='main pic' className='w-[100%]' />
                 </div>
             </div> {/* main section ends */}
